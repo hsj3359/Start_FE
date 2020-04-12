@@ -13,8 +13,27 @@
    </table>
 </div>
 <script>
+    var selectCell = null;
+    var selectColor = null;
     var board = document.getElementById("table");
     var color =true;
+    function select(i,j){
+        console.log(i+''+j);
+        if(selectCell ==null){
+            selectCell = document.getElementById(i+''+j);
+            selectColor = selectCell.getAttribute('bgColor');
+            selectCell.bgColor = "red";
+        }
+        else{
+            selectCell.bgColor = selectColor;
+            selectCell = document.getElementById(i+''+j);
+            selectColor = selectCell.getAttribute('bgColor');
+            selectCell.bgColor = "red";
+        }
+
+        
+        
+    }
     for(var i=0; i<4; i++){
         var row = board.insertRow();
        
@@ -30,6 +49,8 @@
            }
            cell.setAttribute('width','200px');
            cell.setAttribute('height','200px');
+           cell.setAttribute('onclick','select('+i+","+j+')');
+           cell.setAttribute('id',i+""+j)
 
         }
         if(color==true){color=false;}
