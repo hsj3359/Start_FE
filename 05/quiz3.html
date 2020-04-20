@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>DOM</title>
+    <style>
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        padding: 10px;
+      }
+      .box {
+        width: 100px;
+        height: 30px;
+        background-color: #ddd;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+     
+      .red {
+        width: 100px;
+        height: 30px;
+        background-color: red;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div>
+      <input type="text" class="txt" value="hello" />
+      <button class="text-btn" onclick="text()">TEXT 넣기</button>
+      <br />
+      <button class="add-red" onclick="red()">빨간색으로</button>
+      <button class="add-btn" onclick="add()">추가</button>
+      <button class="delete-btn" onclick="del()">삭제</button>
+      <button class="reset-btn" onclick="reset()">초기화</button>
+      <button class="toggle-btn" onclick="togle()">보이기,숨기기 토글</button>
+      <button class="image-btn" onclick="img()">이미지</button>
+    </div>
+  
+    <div class='box'></div>
+    <script src='app.js'></script>
+  </body>
+</html>
