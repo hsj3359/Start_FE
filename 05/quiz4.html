@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      #box{
-        width: 100px; 
-        height: 100px; 
-        background-color: gray;
-        position: absolute
-
-      }
+        #box{
+            width: 150px;
+            height: 100px;
+            background-color: #999;
+            left: 200px;
+            top: 200px;
+            position: absolute;
+        }
     </style>
-    <script src="app2.js"></script>
   </head>
-  <body  onmouseup="up(event)">
-    <div id="box" onmousemove="move(event)"  onmousedown="down(event)">
+  <body>
+    <div id="box">
       Drag me!
     </div>
 
@@ -28,5 +28,9 @@
       </li>
       <li>클릭을 해제하면 드래그가 멈춥니다 (mouseup 이벤트)</li>
     </ol>
+
+    <script src="app2.js">
+   
+    </script>
   </body>
 </html>

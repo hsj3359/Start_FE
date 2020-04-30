@@ -1,43 +1,26 @@
-var pos1, pos2, pos3, pos4
-var elmnt;
-var drag = false;
-function dragElement() { 
-  pos1 = 0;
-  pos2 = 0; 
-  pos3 = 0; 
-  pos4 = 0;
-  
-}
+const $box = document.getElementById('box');
 
-function down(event){
-  dragElement();
-  event.preventDefault(); 
-  pos3 = event.clientX; 
-  pos4 = event.clientY;
-  drag=true;
-  console.log(drag);
-}
+const offset = { x: 0, y: 0 };
+let isDown = false;
 
-function move(event){
-  if(drag){
-    console.log("실행")
-    elmnt = document.getElementById("box");
-    event.preventDefault(); 
-    pos1 = pos3 - event.clientX;  
-    pos2 = pos4 - event.clientY; 
-    pos3 = event.clientX; 
-    pos4 = event.clientY;
-    elmnt.style.top = event.pageX-50 + "px"; 
-    elmnt.style.left = event.pageY-50 + "px";
-  }
-  
-}
+$box.addEventListener('mousedown', (event) =>{
+  console.log('down');
+  isDown = true;
+  offset.x = $box.offsetLeft - event.clientX;
+  offset.y = $box.offsetTop - event.clientY;
+})
 
-function up(event){
-  drag=false;
-  console.log(drag);
-  elmnt = document.getElementById("box");
-  document.onmouseup = null; 
-  document.onmousemove = null; 
-  console.log("현재 요소의 위치 y는 " + elmnt.top +", x는" + elmnt.left + "입니다.");
-}
+$box.addEventListener('mouseup',(event) =>{
+  console.log('up');
+  isDown =false;
+})
+
+document.body.addEventListener('mousemove',(event) =>{
+  console.log('move');
+  if(!isDown)return;
+
+  console.log(event.clientX,event.clientY);
+  var left = (event.clientX +offset.x);
+  var top = (event.clientY + offset.y);
+  $box.setAttribute('style', 'left :'+left + 'px;'+ 'top : '+top+'px;')
+})
