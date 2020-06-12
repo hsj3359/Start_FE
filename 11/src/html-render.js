@@ -1,4 +1,4 @@
-import { saveData } from './saveData'
+import { saveData } from './data-manager'
 const $result = document.querySelector('#result');
 
 
